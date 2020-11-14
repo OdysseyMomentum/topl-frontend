@@ -12,11 +12,11 @@ import { NotFoundComponent } from './not-found/not-found.component';
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'blocks', component: BlockListComponent },
-  { path: 'transactions', component: TransactionsComponent },
+  { path: 'missions', component: TransactionsComponent },
   { path: 'block/:id', component: BlockDetailsComponent },
   { path: 'block/number/:num', component: BlockDetailsComponent },
   { path: 'unconfirmed/:id', component: UnconfirmedDetailsComponent },
-  { path: 'transaction/:id', component: TransactionDetailsComponent },
+  { path: 'mission/:id', component: TransactionDetailsComponent },
   { path: 'address/:id', component: AddressComponent },
   { path: '404', component: NotFoundComponent },
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
