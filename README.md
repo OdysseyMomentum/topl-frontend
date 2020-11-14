@@ -2,10 +2,12 @@
 
 Topl's envisioned Peace Credit solution is intended to empower peace builders to better measure their peace outputs and additionally unlock a new source of innovative financing. With this first phase of the Peace Credit solution we aim to introduce increased transparency into the peace building space as well as deliver a new method of results-based financing that rewards the most productive changemakers rather than the most connected fundraisers. In the second phase of our project, we will be leveraging peace credits as a market-powered early warning system designed to interpret relative supply, demand, and velocity in the Peace Credit market as a distributed oracle for potential instability.
 
+This frontend application has been specifically designed for [Odyssey Conflict Prevention Trach Challenge](https://www.odyssey.org/hackathon-2020-business-plan-for-peace-ministry-of-defence-conflict-prevention/)
 
-# Stack
+# Tech Stack
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
+The backend services used by this app can be found here: https://github.com/OdysseyMomentum/topl-backend
 
 ## Development server
 Run `npm install` to install all dependencies
