@@ -11,6 +11,7 @@ export class MapComponent implements OnInit {
   mobile: boolean;
   map: mapboxgl.Map;
   style = "mapbox://styles/aragonezr/ckhhyjann0feo19k4twgnvv2h";
+
   // Groningen coordinates
   lat = 53.331028;
   lng = 6.5665;
@@ -26,7 +27,6 @@ export class MapComponent implements OnInit {
     }
 
     (mapboxgl as any).accessToken = environment.mapbox.accessToken;
-    //mapboxgl.accessToken = environment.mapbox.accessToken;
     topl_map = new mapboxgl.Map({
         container: 'map',
         style: this.style,
@@ -42,7 +42,27 @@ export class MapComponent implements OnInit {
 
     function addMarker(e){
       //console.log(e);
-      new mapboxgl.Marker().setLngLat(e.lngLat.wrap()).addTo(topl_map);
+      //new mapboxgl.Marker().setLngLat(e.lngLat.wrap()).addTo(topl_map);
+
+      var el = document.createElement('div');
+      el.className = 'marker';
+      el.style.backgroundImage = 'url(../../../assets/wf-icons/M60.png)';
+      //el.style.backgroundImage = 'url(../../../assets/img/instagram.png)';
+
+      //el.style.backgroundImage = '../assets/wf_icons/M60.png';
+      el.style.width = '40px';
+      el.style.height = '40px'
+      el.style.backgroundSize = 'cover';
+
+      el.addEventListener('click', function () {
+        console.log("you clicked me!!");
+        //window.alert(marker.properties.message);
+      });
+
+      // add marker to map
+      new mapboxgl.Marker(el)
+      .setLngLat(e.lngLat.wrap())
+      .addTo(topl_map);
     }
   }
 }
