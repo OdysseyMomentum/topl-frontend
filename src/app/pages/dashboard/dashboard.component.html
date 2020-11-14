@@ -1,0 +1,118 @@
+<div class="container">
+  <!-- <div class="paddingTop">
+    <app-search-bar></app-search-bar>
+  </div>-->
+  <div class="container-intro">
+    <h2 class="title">Conflict Prevention | Team Mission</h2>
+    <p class="introduction-text">
+      Topl's envisioned Peace Credit solution is intended to empower peace
+      builders to better measure their peace outputs and additionally unlock
+      a new source of innovative financing. With this first phase of the
+      Peace Credit solution we aim to introduce increased transparency into
+      the peace building space as well as deliver a new method of results-based
+      financing that rewards the most productive changemakers rather than the
+      most connected fundraisers. In the second phase of our project, we will
+      be leveraging peace credits as a market-powered early warning system designed
+      to interpret relative supply, demand, and velocity in the Peace Credit market
+      as a distributed oracle for potential instability.
+    </p>
+    <!-- <hr class="hrLine2 border_custom"> -->
+    <hr class="hrLine">
+  </div>
+
+  <!-- <div class="justify-content-around ">
+    <div class="tableSmall d-flex justify-content-center">
+      <div class="p-2 tableLg text-center col-xl-6 tableLeft"><span class="small m-2">Block Height</span>
+        <h3>{{blockHeight}}</h3>
+      </div>
+      <div class="p-2 tableLg text-center col-xl-6 tableRight"><span class="small m-2">Avg. Block Time (s)</span>
+        <h3>{{avgBlockDelay}}</h3>
+      </div>
+    </div>
+  </div> -->
+  <div class="row rounded listTable p-4">
+    <div class="col-xl-7 rounded-left pb-3 mb-0">
+      <div class="d-flex justify-content-left">
+        <div class="tableHeading">
+          Create Mission
+          <hr class="hrLine2 border_custom">
+        </div>
+      </div>
+      <div class="border_custom" style="overflow-x:scroll;">
+        <div style="min-width: 605px;">
+          <!-- Remove ngIF below... should be moved to the right side fo the mission status details. -->
+          <table *ngIf="blockBatch" class="table table-borderless table-hover table-striped">
+            <thead>
+              <tr class="table-heading">
+                <th class="tableField text-center">Block #</th>
+                <th class="tableField text-center"># of transactions</th>
+                <th class="tableField text-center"><img src="../../../assets/img/history-clock-button.png" alt=""
+                    class="img-fluid m-1"></th>
+              </tr>
+            </thead>
+            <tbody class="">
+              <tr *ngFor="let i of [0,1,2,3,4,5,6,7,8,9]">
+                <td (click)="clickBlock(blockBatch[i]?.id)" class="tableData1 text-center link-rich">
+                  {{blockBatch[i]?.blockNumber? blockBatch[i].blockNumber : '-'}}</td>
+                <td (click)="clickBlock(blockBatch[i]?.id)" class="tableData2 text-center">
+                  {{blockBatch[i]?.txs? blockBatch[i].txs.length : '-'}}</td>
+                <td (click)="clickBlock(blockBatch[i]?.id)" class="tableData2 text-center">
+                  {{blockBatch[i].timestamp | date: 'yyyy/MM/dd h:mm:ss a'}}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-xl-5 rounded-right pb-3 mb-0" [ngClass]="{'verticalLine': mobile==false}">
+      <div class="d-flex justify-content-left">
+        <div class="tableHeading">
+          Mission/Message Status
+          <hr class="hrLine2">
+        </div>
+      </div>
+      <div class="border_custom" style="overflow-x:scroll;">
+        <div style="min-width: 423px;">
+          <table class="table table-borderless table-hover table-striped fixed_header">
+            <thead>
+              <tr class="table-heading">
+                <th class="tableField text-center">Mission</th>
+                <th class="tableField text-center">Status</th>
+              </tr>
+            </thead>
+            <!-- <tbody *ngIf="unconfirmedTxns.length > 0" class=""> -->
+            <tbody class=""></tbody>
+              <tr class="table-heading">
+                <th class="tableField text-center">Need to connect sockets api to receive update...</th>
+                <th class="tableField text-center">Complete</th>
+                <div *ngIf="!blockBatch" class="row text-center" style="min-height: 800px;">
+                  <div class="col">
+                    <img src="../../../assets/img/bars.svg" alt="">
+                  </div>
+                </div>
+              </tr>
+              <tr *ngFor="let tx of unconfirmedTxns">
+                <td (click)="clickMempool(tx?.txHash)" class="tableData1 text-center link-rich hash">
+                  {{tx?.txHash? truncateMiddle(tx.txHash, 5, 5, "...") : '-'}}</td>
+                <td (click)="clickMempool(tx?.txHash)" class="tableData2 text-center">
+                  {{tx?.txType? tx.txType : '-'}}</td>
+              </tr>
+            </tbody>
+            <tbody *ngIf="unconfirmedTxns.length == 0" class=""></tbody>
+          </table>
+          <div *ngIf="unconfirmedTxns.length == 0" class="d-flex justify-content-center align-content-center">
+            <div class="py-4">
+              No unconfirmed transactions
+            </div>
+          </div>
+        </div>
+        <div *ngIf="!unconfirmedTxns" style="border: none">
+          <span>No unconfirmed transactions</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,154 @@
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white, 50%)) {
+
+  // For Google Chrome
+  ::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: $background-color;
+  }
+
+  // For Internet Explorer
+  body {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+@include scrollbars(.25em, #EEEEEE);
+
+
+.bgWhite {
+  background-color: white;
+  // height: 75vh;
+  // overflow: hidden;
+}
+
+.hrLine {
+  color: #18A08E;
+  border: none;
+  background-color: #18A08E;
+  width: 35px;
+  height: 3px;
+  margin-top: 3px;
+}
+
+.tableTitle {
+  font-weight: bold;
+  font-size: 25px;
+  color: #4A4A4A;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.tableField {
+  font-weight: 900;
+  font-size: 17.5px;
+  color: #737373;
+}
+
+.tableData1 {
+  font-weight: normal;
+  font-size: 17.5px;
+  // color: #A0A0A0;
+  color: #212529;
+  cursor: pointer;
+}
+
+.hash {
+  font-family: monospace;
+}
+
+// .tableData1:hover {
+//   font-weight: 500;
+//   font-size: 17.5px;
+//   color: #18A08E;
+//   // cursor: pointer;
+// }
+
+.tableData2 {
+  font-weight: normal;
+  font-size: 17.5px;
+  // color: #707070;
+  color: #212529;
+  cursor: pointer;
+}
+
+.tableData3 {
+  font-weight: 500;
+  font-size: 17.5px;
+  // color: #707070;
+  color: #212529;
+  cursor: pointer;
+}
+
+.pagComment {
+  font-weight: normal;
+  font-size: 17.5px;
+  color: #4A4A4A;
+}
+
+.pagItems {
+  font-weight: bold;
+  font-size: 17.5px;
+  color: #4A4A4A;
+}
+
+.pagIcons {
+  height: 100% !important;
+}
+
+.pagIcons i {
+  padding-top: 0.35rem !important;
+}
+
+.scrollIt {
+  max-height: 400px;
+  overflow: auto;
+}
+
+// .scrollIt thead {
+//   position: absolute;
+//   background-color: white;
+// //   margin-top: -20px;
+// }
+
+// .scrollIt thead>tr {
+//   position: relative;
+//   //   display: block;
+// }
+
+// .scrollIt tbody {
+//   // display: block;
+//   height: 300px;
+//   overflow: auto;
+// }
+
+.table-heading {
+  background-color: white;
+}
+
+tbody {
+  // display: block;
+  // height: 400px;
+  // overflow: auto;
+}
+
+thead,
+tbody tr {
+  //display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+thead {
+  width: calc(100%)
+}

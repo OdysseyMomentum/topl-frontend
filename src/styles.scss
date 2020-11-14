@@ -1,0 +1,105 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+// @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,900&display=swap');
+
+
+.table-hover tbody tr:hover td,
+.table-hover tbody tr:hover th {
+  background-color: #eaf9ee;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f2f7f3;
+}
+
+
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white, 50%)) {
+
+  // For Google Chrome
+  ::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: $background-color;
+  }
+
+  // For Internet Explorer
+  body {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+body {
+  background: url('../src/assets/img/curves2.png') no-repeat top center;
+  background-size: cover;
+  // background-size: 100% 102%;
+  // font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  height: 100%;
+  margin: 0;
+}
+
+html {
+  height: 100%
+}
+
+.link-rich {
+  cursor: pointer;
+}
+
+.link-rich:hover {
+  color: #18A08E !important;
+  // cursor: pointer;
+}
+
+td:hover {
+  cursor: pointer;
+}
+
+.border_custom {
+  border: 1px solid #E8E8E8;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.04);
+}
+
+*:focus {
+  outline: none;
+}
+
+* {
+  -ms-overflow-style: none; // IE 10+
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+  display: none; // Safari and Chrome
+}
+
+.wrapword {
+  white-space: -moz-pre-wrap !important;
+  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;
+  /* Opera 4-6 */
+  white-space: -o-pre-wrap;
+  /* Opera 7 */
+  white-space: pre-wrap;
+  /* css-3 */
+  word-wrap: break-word;
+  /* Internet Explorer 5.5+ */
+  white-space: -webkit-pre-wrap;
+  /* Newer versions of Chrome/Safari*/
+  word-break: break-all;
+  white-space: normal;
+}
+
+.linkDec :hover {
+  cursor: pointer;
+}

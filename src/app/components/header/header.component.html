@@ -1,0 +1,69 @@
+<div class="bgImg">
+  <nav class="navbar navbar-expand-xl navbar-light">
+    <ul class="nav justify-content-center">
+      <li class="nav-item linkDec" [routerLink]="['/dashboard']">
+        <img src="../../../assets/img/topl_3.svg" class="img-fluid">
+      </li>
+      <!-- <li class="nav-item ml-3 mt-1">
+        <div class="capsule px-4 py-1">
+          EXPLORER
+        </div>
+      </li> -->
+    </ul>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarCollapse" [ngClass]="{'d-flex': mobile==false}">
+
+      <div [ngClass]="{'flex-grow-1': mobile==false}">
+        <div class="navbar-nav" [ngClass]="{'centre-header': mobile==false}">
+          <a class="nav-item nav-link mx-3 my-2 p-0 linkText" [ngClass]="{'link-header': mobile==false}"
+            [routerLink]="['/dashboard']">Dashboard</a>
+          <!--<a class="nav-item nav-link mx-3 my-2 p-0 linkText" [ngClass]="{'link-header': mobile==false}"-->
+            <!--[routerLink]="['/blocks']">Blocks</a>-->
+          <a class="nav-item nav-link mx-3 my-2 p-0 linkText" [ngClass]="{'link-header': mobile==false}"
+            [routerLink]="['/transactions']">Missions</a>
+          <!-- <a class="nav-item nav-link mx-2 linkText" [routerLink]="['/address']">Addresses</a> -->
+        </div>
+      </div>
+
+      <!--<div class="d-flex justify-content-center my-1">-->
+        <!--<div class="bifrost p-2 mx-3">-->
+          <!--<span><img src="../../../assets/img/information.svg" class="img-fluid mr-2 mb-1"></span>-->
+          <!--<span>Bifrost Version 0.2</span>-->
+
+          <!--<span class="mainnet m-1 ml-3">Mainnet</span>-->
+        <!--</div>-->
+
+         <!--<div class="dropdown d-flex justify-content-center">-->
+          <!--<button class="btn btn-sm dropdown-toggle headerDropDown" type="button" id="dropdownMenu1"-->
+            <!--data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+            <!--<span>-->
+              <!--<img src="../../../assets/img/blockchain.svg" class="img-fluid">-->
+              <!--</span>-->
+            <!--<span class="mainnet m-3">Mainnet</span>-->
+          <!--</button>-->
+        <!--</div>-->
+
+      <!--</div>-->
+
+      <div class="d-flex justify-content-center">
+
+      <a href="https://english.defensie.nl/" target="_blank"><img src="../../../assets/img/logo-def-eng.svg" class="logo-holder" style="height: 95px;margin-bottom: -30px; margin-right: -68px;"></a>
+      <a href="https://thebusinessplanforpeace.org/" target="_blank"><img src="../../../assets/img/business-plan-for-peace.png" class="logo-holder"></a>
+
+        <!-- <a href=""><img src="../../../assets/img/topl_3.svg" class="img-fluid"></a> -->
+
+        <!-- <li class="nav-item linkDec" [routerLink]="['/dashboard']">
+          <img src="../../../assets/img/topl_3.svg" class="img-fluid">
+        </li> -->
+        <!-- <li class="nav-item ml-3 mt-1">
+          <div class="capsule px-4 py-1">
+            EXPLORER
+          </div>
+        </li> -->
+      </div>
+    </div>
+  </nav>
+</div>

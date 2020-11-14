@@ -1,0 +1,92 @@
+<div class="container mt-3 pb-2">
+  <app-search-bar></app-search-bar>
+</div>
+<div class="bgWhite">
+  <div class="container">
+    <div class="">
+      <div  class="d-flex justify-content-between pt-4 my-2" style="padding-left: 3%; padding-right: 4%;">
+        <div class="p-2 tableTitle">
+          Block List
+          <hr class="hrLine" />
+        </div>
+        <div class="p-2 d-flex flex-row">
+          <div class="pagComment px-2 pt-1 mx-2">Page</div>
+          <div>
+            <ul class="pagination pagination-sm">
+              <li
+                class="page-item linkDec"
+                (click)="prev()"
+                [ngClass]="{ disabled: page == 1 }"
+              >
+                <a class="page-link pagIcons"
+                  ><i
+                    class="fa fa-chevron-left"
+                    style="color: #18a08e !important;"
+                  ></i
+                ></a>
+              </li>
+              <li class="page-item">
+                <span class="page-link pagItems">{{ page }}</span>
+              </li>
+
+              <li class="page-item linkDec" (click)="next()">
+                <a class="page-link pagIcons"
+                  ><i
+                    class="fa fa-chevron-right"
+                    style="color: #18a08e !important;"
+                  ></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="my-3 border_custom" style="overflow-x: scroll;">
+      <div style="min-width: 1077px;">
+        <div
+          *ngIf="!blockBatch"
+          class="row text-center"
+          style="min-height: 800px;"
+        >
+          <div class="col">
+            <img src="../../../assets/img/bars.svg" alt="" />
+          </div>
+        </div>
+        <table
+          *ngIf="blockBatch"
+          class="table table-borderless table-hover table-striped"
+        >
+          <thead>
+            <tr class="table-heading">
+              <th class="tableField text-left">Block ID</th>
+              <th class="tableField text-left">Block Height</th>
+              <th class="tableField text-left">Timestamp</th>
+              <th class="tableField text-left">Generator Box</th>
+              <th class="tableField text-left">Size (kB)</th>
+            </tr>
+          </thead>
+          <tbody class="">
+            <tr *ngFor="let block of blockBatch">
+              <td class="tableData1 text-left link-rich hash" (click)="clickdetails(block?.id)">
+                {{ block?.id }}
+              </td>
+              <td class="tableData1 text-left" (click)="clickdetails(block?.id)">
+                {{ block?.blockNumber }}
+              </td>
+              <td class="tableData1 text-left" (click)="clickdetails(block?.id)">
+                {{ block?.timestamp | date: "yyyy/MM/dd h:mm:ss a" }}
+              </td>
+              <td class="tableData1 text-left hash" (click)="clickdetails(block?.id)">
+                {{ truncateMiddle(block?.generatorBox, 5, 5, "...") }}
+              </td>
+              <td class="tableData2 text-left" (click)="clickdetails(block?.id)">
+                {{ block?.blockSize/1000 }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

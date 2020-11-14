@@ -1,0 +1,202 @@
+<div class="container mt-3 pb-2">
+  <app-search-bar></app-search-bar>
+</div>
+
+<div class="bgWhite">
+  <div class="container">
+    <div class="">
+
+      <div class="row my-4 mx-0 pt-3">
+        <div class="col-xl-4 pl-2 d-flex justify-content-start">
+          <div class="tableTitle">
+            Transaction
+            <hr class="hrLine" />
+          </div>
+        </div>
+        <div class="col-xl-4 d-flex justify-content-center"></div>
+        <div class="col-xl-4"></div>
+      </div>
+
+      <div *ngIf="txnDetails" class="scrollIt">
+        <div class="my-3 row ml-2">
+          <div class="col-12 details-table px-0 border_custom">
+            <div class="p-3 btm-bdr">
+              <div class="mx-2 px-2">
+                <span class="details-title">Details</span>
+              </div>
+            </div>
+
+            <div class="row p-2 mx-1">
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                <span class="details-fields">Transaction ID</span>
+                <div class="pt-2 d-flex flex-row">
+                  <div class="wrapword">
+                    <h4 class="details-data pt-1 hash" id="myInput">
+                      {{ txnDetails.txHash }}
+                    </h4>
+                  </div>
+                  <div (click)="copyToClipboard('#blockId')" class="mx-2 px-1 pb-3">
+                    <img style="cursor: pointer;" src="../../../assets/img/copy.svg" class="img-fluid" alt=""/>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div *ngIf="txnDetails.assetCode" class="row p-2 mx-1">
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 row mx-0">
+                <div class="px-0 pr-1 mx-0">
+                  <span class="details-fields">Asset Issuer</span>
+                  <div class="pt-2">
+                    <h4 class="details-data pt-1 link-rich">{{ txnDetails.issuer }}</h4>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 row mx-0">
+                <div class="px-0 pr-1 mx-0">
+                  <span class="details-fields">Asset Code</span>
+                  <div class="pt-2">
+                    <h4 class="details-data pt-1">{{ txnDetails.assetCode }}</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row p-2 mx-1">
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 row mx-0">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 px-0 pr-1 mx-0">
+                  <span class="details-fields">Transaction Type</span>
+                  <div class="pt-2">
+                    <h4 class="details-data pt-1">{{ txnDetails.txType }}</h4>
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 px-0 pr-1 mx-0">
+                  <span class="details-fields">Timestamp</span>
+                  <div class="pt-2">
+                    <h4 class="details-data pt-1">
+                      {{ txnDetails.timestamp | date: "yyyy/MM/dd h:mm:ss a" }}
+                    </h4>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 row mx-0">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 px-0 pr-1 mx-0" >
+                  <span class="details-fields">Fees</span>
+                  <div class="pt-2">
+                    <h4 class="details-data pt-1">{{ txnDetails.fee }}</h4>
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 px-0 pr-1 mx-0">
+                  <span class="details-fields">Status</span>
+                  <div class="pt-2">
+                    <h4 class="details-data pt-1">{{ txnDetails.status }}</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="my-3 row ml-2">
+          <div class="col-12 border_custom my-3" style="overflow-x: scroll;">
+            <div class="row" style="min-width: 1020px;">
+              <div class="col-5">
+                <table class="table table-borderless table-hover table-striped">
+                  <thead>
+                    <tr class="table-heading">
+                      <th class="tableField text-left">Sender</th>
+                    </tr>
+                  </thead>
+                  <tbody *ngIf="txnDetails.txType !== 'AssetCreation'">
+                    <tr *ngFor="let sender of txnDetails.from">
+                      <td class="tableData2 text-left hash" (click)="clickAddress(sender[0])">
+                        {{ sender[0] }}
+                      </td>
+                    </tr>
+                  </tbody>
+                  <tbody *ngIf="txnDetails.txType === 'AssetCreation'">
+                    <tr>
+                      <td class="tableData2 text-left hash" (click)="clickAddress(txnDetails.issuer)">
+                        {{ txnDetails.issuer }}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-1 py-5 d-flex justify-content-center">
+                <div class="p-1">
+                  <img class="" style="width: 100px !important; padding: 20px; padding-top: 15px;" src="../../../assets/img/alt_arrow.svg"/>
+                </div>
+              </div>
+              <div class="col-6">
+                <table class="table table-borderless table-hover table-striped">
+                  <thead>
+                    <tr class="table-heading">
+                      <th class="tableField text-left">Recipient</th>
+                      <th class="tableField text-left">Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody *ngFor="let recipient of txnDetails.to">
+                    <tr>
+                      <td class="tableData3 text-left hash wrapword" (click)="clickAddress(recipient[0])">
+                        {{ recipient[0] }}
+                      </td>
+                      <td class="tableData2 text-center">
+                        {{ recipient[1] }}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="my-3 row ml-2">
+          <div class="col-12 border_custom my-3" style="overflow-x: scroll;">
+            <div class="row" style="min-width: 1020px;">
+              <div class="col-6">
+                <table class="table table-borderless table-striped">
+                  <thead>
+                    <tr class="table-heading">
+                      <th class="tableField text-left">Inputs</th>
+                    </tr>
+                  </thead>
+                  <tbody *ngIf="txnDetails.boxesToRemove.length > 0">
+                    <tr *ngFor="let inputs of txnDetails.boxesToRemove">
+                      <td class="tableData2 text-left hash">
+                        {{ inputs }}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-6">
+                <table class="table table-borderless table-striped">
+                  <thead>
+                    <tr class="table-heading">
+                      <th class="tableField text-left">Outputs</th>
+                    </tr>
+                  </thead>
+                  <tbody *ngFor="let output of txnDetails.newBoxes">
+                    <tr>
+                      <td class="tableData2 text-left hash">
+                        {{ output }}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="!txnDetails">
+        <div class="col">
+          <img src="../../../assets/img/bars.svg" alt="" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

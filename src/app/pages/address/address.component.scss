@@ -1,0 +1,197 @@
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white, 50%)) {
+
+  // For Google Chrome
+  ::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: $background-color;
+  }
+
+  // For Internet Explorer
+  body {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+@include scrollbars(.25em, #EEEEEE);
+
+
+.bgWhite {
+  background-color: white;
+  // height: 70vh;
+  // overflow: hidden;
+}
+
+.hrLine {
+  color: #18A08E;
+  border: none;
+  background-color: #18A08E;
+  width: 35px;
+  height: 3px;
+  margin-top: 3px;
+}
+
+.tableTitle {
+  font-weight: bold;
+  font-size: 25px;
+  color: #4A4A4A;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.tableField {
+  font-weight: 900;
+  font-size: 17.5px;
+  color: #737373;
+}
+
+.tableData1 {
+  font-weight: normal;
+  font-size: 17.5px;
+  // color: #A0A0A0;
+  color: #212529;
+}
+
+.tableData2 {
+  font-weight: normal;
+  font-size: 17.5px;
+  // color: #707070;
+  color: #212529;
+}
+
+.tableData3 {
+  font-weight: 500;
+  font-size: 17.5px;
+  // color: #707070;
+  color: #212529;
+}
+
+.pagComment {
+  font-weight: normal;
+  font-size: 17.5px;
+  color: #4A4A4A;
+}
+
+.scrollIt {
+  max-height: 313px;
+  overflow: auto;
+}
+
+.verticalLine {
+  border-left: 1px solid #E8E8E8;
+}
+
+.listItem {
+  border: 1px solid #E8E8E8;
+  border-radius: 5px;
+  // height: 10%;
+  // padding: 2%;
+  // margin: 2%;
+}
+
+// .table-heading {
+//   background-color: white;
+// }
+
+// tbody {
+//     display:block;
+//     height:400px;
+//     overflow:auto;
+// }
+// thead, tbody tr {
+//     display:table;
+//     width:100%;
+//     table-layout:fixed;
+// }
+// thead {
+//     width: calc( 100% )
+// }
+
+.details-table {
+  background: #FCFCFC;
+  border: 2px solid #D8D8D8;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.btm-bdr {
+  border-bottom: 2px solid #D8D8D8;
+}
+
+.details-title {
+  font-weight: bold;
+  font-size: 17.5px;
+  color: #000000;
+  // border-bottom: 2px solid #D8D8D8;
+}
+
+.details-fields {
+  font-weight: normal;
+  font-size: 17.5px;
+  color: #000000;
+}
+
+.details-data {
+  font-weight: bold;
+  font-size: 25px;
+  color: #000000;
+}
+
+.qr-cmnt {
+  font-weight: bold;
+  font-size: 25px;
+  color: #979797;
+}
+
+.greenIcon {
+  background: #18A08E;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 17.5px;
+  color: #FFFFFF;
+}
+
+.blueIcon {
+  background: #4064AB;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 17.5px;
+  color: #FFFFFF;
+}
+
+.pagComment {
+  font-weight: normal;
+  font-size: 17.5px;
+  color: #4A4A4A;
+}
+
+.pagItems {
+  font-weight: bold;
+  font-size: 17.5px;
+  color: #4A4A4A;
+}
+
+.pagIcons {
+  height: 100% !important;
+}
+
+.pagIcons i {
+  padding-top: 0.35rem !important;
+}
+
+.span-center {
+  display: block !important;
+  text-align: center !important;
+  margin: 0 auto !important;
+  max-width: 114px;
+}

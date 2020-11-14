@@ -1,0 +1,228 @@
+<div class="container mt-3 pb-2">
+  <app-search-bar></app-search-bar>
+</div>
+
+<div class="bgWhite">
+  <div class="container">
+    <div class="">
+
+      <div class="row my-4 mx-0 pt-3">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 pl-2 d-flex justify-content-start">
+          <div class="tableTitle">
+            Block #
+            <hr class="hrLine" />
+          </div>
+          <div *ngIf="blockDetails" class="d-flex justify-content-center">
+            <div class="tableTitle mx-4">{{ blockDetails.blockNumber }}</div>
+          </div>
+        </div>
+        <div *ngIf="!mobile" class="col-xl-8 col-lg-8 col-md-8 col-sm-12 d-flex justify-content-end">
+          <div class="d-flex justify-content-between mx-5">
+            <div class="mx-3">
+              <img src="../../../assets/img/keyboard-left-arrow-button.svg" class="img-fluid py-1" alt="prev"
+                style="cursor: pointer;" (click)="next()" />
+            </div>
+            <div class="mx-3">
+              <img src="../../../assets/img/keyboard-right-arrow-button.svg" class="img-fluid py-1" alt="next"
+                style="cursor: pointer;" (click)="prev()" />
+            </div>
+          </div>
+        </div>
+        <div *ngIf="mobile" class="col-xl-8 col-lg-8 col-md-8 col-sm-12 d-flex justify-content-center">
+          <div class="d-flex justify-content-between mx-5">
+            <div class="mx-3">
+              <img src="../../../assets/img/keyboard-left-arrow-button.svg" class="img-fluid py-1" alt=""
+                style="cursor: pointer;" (click)="next()" />
+            </div>
+            <div class="mx-3">
+              <img src="../../../assets/img/keyboard-right-arrow-button.svg" class="img-fluid py-1" alt=""
+                style="cursor: pointer;" (click)="prev()" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="blockDetails" class="scrollIt">
+        <div class="row ml-2">
+          <div class="col-12 details-table px-0">
+            <div class="p-3 btm-bdr">
+              <div class="mx-2 px-2">
+                <span class="details-title">Details</span>
+              </div>
+            </div>
+
+            <div class="row p-2 mx-1">
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                <span class="details-fields">Block ID</span>
+                <div class="pt-2 d-flex flex-row">
+                  <div class="wrapword">
+                    <h4 class="details-data pt-1 hash" id="blockId">
+                      {{ blockDetails.id }}
+                    </h4>
+                  </div>
+                  <div (click)="copyToClipboard('#blockId')" class="mx-2 px-1 pb-3">
+                    <img style="cursor: pointer;" src="../../../assets/img/copy.svg" class="img-fluid" alt="" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                <span class="details-fields">Parent ID</span>
+                <div class="pt-2 d-flex flex-row">
+                  <div class="wrapword">
+                    <h4 type="text" class="details-data pt-2 hash" id="parentId">
+                      {{ blockDetails.parentId }}
+                    </h4>
+                  </div>
+                  <div (click)="copyToClipboard('#parentId')" class="mx-2 px-1 pb-1">
+                    <img style="cursor: pointer;" src="../../../assets/img/copy.svg" class="img-fluid" alt="" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row p-2 mx-1">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <span class="details-fields">Generator Box</span>
+                <div class="pt-2 d-flex flex-row">
+                  <div class="wrapword">
+                    <h4 type="text" class="details-data pt-1 hash">
+                      {{ blockDetails.generatorBox }}
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row p-2 mx-1">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 pt-3">
+                <span class="details-fields">Signature</span>
+                <div class="pt-2 d-flex flex-row">
+                  <div class="wrapword">
+                    <h4 type="text" class="details-data pt-1 hash">
+                      {{ blockDetails.signature }}
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row p-2 mx-1 pt-2 py-3">
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 row mx-0">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 px-0 pr-1 mx-0">
+                  <span class="details-fields">Timestamp</span>
+                  <div class="pt-2">
+                    <h4 class="details-data pt-1">
+                      {{
+                        blockDetails.timestamp | date: "yyyy/MM/dd h:mm:ss a"
+                      }}
+                    </h4>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 row mx-0">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 px-0 pr-1 mx-0">
+                  <span class="details-fields">Size (kB)</span>
+                  <div class="pt-2">
+                    <h4 class="details-data pt-1">
+                      {{ blockDetails.blockSize/1000 }}
+                    </h4>
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 px-0 pr-1 mx-0">
+                  <span class="details-fields">Fees</span>
+                  <div class="pt-2">
+                    <h4 class="details-data pt-1">
+                      {{ blockDetails.fees }}
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row ml-2">
+          <div class="d-flex justify-content-between pt-4 my-2">
+            <div class="p-2 tableTitle">
+              Transactions
+              <hr class="hrLine" />
+            </div>
+            <div class="p-2 pagComment"></div>
+          </div>
+        </div>
+
+        <div class="row ml-2">
+          <div class="my-3 border_custom" style="overflow-x: scroll;">
+            <div style="min-width: 1106px;">
+              <table class="table table-borderless table-hover table-striped">
+                <thead>
+                  <tr class="table-heading">
+                    <th class="tableField text-left">Transaction ID</th>
+                    <th class="tableField text-left">Timestamp</th>
+                    <th class="tableField text-left">Type</th>
+                    <th class="tableField text-left">Fees</th>
+                  </tr>
+                </thead>
+                <tbody class="">
+                  <tr *ngFor="let i of txns">
+                    <td (click)="clickdetails(i.txHash)" class="tableData1 text-left link-rich hash">
+                      {{ i.txHash }}
+                    </td>
+                    <td (click)="clickdetails(i.txHash)" class="tableData2 text-left">
+                      {{ i.timestamp | date: "yyyy/MM/dd h:mm:ss a" }}
+                    </td>
+                    <td (click)="clickdetails(i.txHash)" *ngIf="i.txType == 'ArbitTransfer'"
+                      class="d-flex align-items-center text-left">
+                      <span class="badge badge-pill p-2 px-3" style="background-color: #01a3a4; color: white;">
+                        Arbit transfer
+                      </span>
+                    </td>
+                    <td (click)="clickdetails(i.txHash)" *ngIf="i.txType == 'PolyTransfer'"
+                      class="d-flex align-items-center text-left">
+                      <span class="badge badge-pill p-2 px-3" style="background-color: #54a0ff; color: white;">
+                        Poly transfer
+                      </span>
+                    </td>
+                    <td (click)="clickdetails(i.txHash)" *ngIf="i.txType == 'AssetTransfer'"
+                      class="d-flex align-items-center text-left">
+                      <span class="badge badge-pill p-2 px-3" style="background-color: #ff9f43; color: white;">
+                        Asset transfer
+                      </span>
+                    </td>
+                    <td (click)="clickdetails(i.txHash)" *ngIf="i.txType == 'AssetCreation'"
+                      class="d-flex align-items-center text-left">
+                      <span class="badge badge-pill p-2 px-3" style="background-color: #48dbfb; color: white;">
+                        Asset creation
+                      </span>
+                    </td>
+                    <td (click)="clickdetails(i.txHash)" *ngIf="i.txType == 'CoinbaseTransaction'"
+                      class="d-flex align-items-center text-left">
+                      <span class="badge badge-pill p-2 px-3"
+                        style="background-color: #1dd1a1; color: white;">
+                        Coinbase
+                      </span>
+                    </td>
+                    <td (click)="clickdetails(i.txHash)" *ngIf="!i.txType"
+                      class="d-flex align-items-center text-left">
+                        -
+                    </td>
+                    <td (click)="clickdetails(i.txHash)" class="tableData2 text-left">
+                      {{ i.fee }}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="!blockDetails">
+        <div class="col text-center">
+          <img src="../../../assets/img/bars.svg" alt="" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

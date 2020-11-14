@@ -1,0 +1,96 @@
+<footer>
+  <footer id="footer">
+    <nav>
+      <div class="row footer-img" [ngClass]="{'d-flex justify-content-center': mobile==true}">
+        <div class="col col-7 footer-topl-div">
+          <a href="/" title="home"><img src="../../../assets/img/topl_3.svg" class=""></a>
+        </div>
+
+        <!-- <div class="col col-5 ">
+          <div class="footer-signup-btn-div" id="footer-subscribe-box">
+            <input class="footer-subscribe-inpt" id="footer-email" placeholder="Enter e-mail address here" type="email">
+            <div class="footer-subscribe-btn-div">
+              <button class="footer-subscribe-btn" onclick="footersubscribe()"><img class="footer-subscribe-btn-img"
+                  src="/img/letter.png" alt=""> Subscribe</button>
+            </div>
+          </div>
+          <div class="footer-subscribed-btn-div feature-content" id="footer-subscribed-btn">
+            <button class="footer-subscribed-btn"><img class="footer-subscribe-btn-img" src="/img/letter.png" alt="">
+              Subscribed</button>
+          </div>
+        </div> -->
+
+      </div>
+      <div class="row">
+        <!--<div class="col-md-6 col-lg-5 footer-link">-->
+          <!--<ul [ngClass]="{'pl-0': mobile==true}">-->
+            <!--<li [ngClass]="{'d-flex justify-content-center ml-0': mobile==true}">-->
+              <!--<a class="linkText link-header" [routerLink]="['/dashboard']">Overview</a>-->
+            <!--</li>-->
+            <!--<li [ngClass]="{'d-flex justify-content-center ml-0': mobile==true}">-->
+              <!--<a class="linkText link-header" [routerLink]="['/blocks']">Blocks</a>-->
+            <!--</li>-->
+            <!--<li [ngClass]="{'d-flex justify-content-center ml-0': mobile==true}">-->
+              <!--<a class="linkText link-header" [routerLink]="['/transactions']">Transactions</a>-->
+            <!--</li>-->
+
+          <!--</ul>-->
+        <!--</div>-->
+        <div class="col-md-6 col-lg-4 contact-icon" *ngIf="mobile==false">
+          <ul>
+            <li>
+              <a class="disp-flx" target="_blank" href="https://medium.com/topl-blog"> <img class="bgs-img"
+                  src="../../../assets/img/blog.png" alt="">Medium</a>
+            </li>
+            <li>
+              <a class="disp-flx" target="_blank" href="https://github.com/topl"> <img class="bgs-img"
+                  src="../../../assets/img/github.png" alt="">GitHub</a>
+            </li>
+            <li>
+              <a class="disp-flx" target="_blank" href="https://impact.zulipchat.com/join/yzf37uy0ud7bdhkp37rg3azf/">
+                <img class="bgs-img" src="../../../assets/img/zulip.svg" alt="">Zulip</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-md-12 col-lg-3">
+          <ul [ngClass]="{'pl-0': mobile==true}">
+            <!-- <li class="social-text"><span *ngIf="mobile==false" class="social-text">Social Media </span></li> -->
+            <li [ngClass]="{'d-flex justify-content-center ml-0': mobile==true}">
+              <!-- <span>Our site : </span> -->
+              <a href="https://topl.co/" class="linkText" [ngClass]="{'d-inline':  mobile==true}">www.topl.me</a>
+            </li>
+
+            <li [ngClass]="{'d-flex justify-content-center ml-0': mobile==true}">
+              <a [ngClass]="{'pl-3': mobile==true}" target="_blank" href="https://www.instagram.com/topl_protocol/">
+                <img class="social-link-img" src="../../../assets/img/instagram.png" alt=""></a>
+              <a target="_blank" href="https://twitter.com/topl_protocol"><img class="social-link-img"
+                  src="../../../assets/img/twitter.png" alt=""></a>
+              <a target="_blank" href="https://www.linkedin.com/company/7592307/"><img class="social-link-img"
+                  src="../../../assets/img/linkedin.png" alt=""></a>
+              <a target="_blank" href="https://www.facebook.com/topl.protocol/"><img
+                  class="social-link-img social-link-mobile" src="../../../assets/img/facebook.png" alt=""></a>
+            </li>
+
+          </ul>
+        </div>
+        <div class="col-md-12 d-flex justify-content-center ml-0" *ngIf="mobile==true">
+          <div>
+            <ul class="pl-0 mt-4">
+              <li class="ml-0 pl-4">
+                <a target="_blank" href="https://medium.com/topl-blog"> <img class="bgs-img"
+                    src="../../../assets/img/blog.png" alt=""></a>
+                <a target="_blank" href="https://github.com/topl"> <img class="bgs-img"
+                    src="../../../assets/img/github.png" alt=""></a>
+                <a target="_blank" href="https://impact.zulipchat.com/join/yzf37uy0ud7bdhkp37rg3azf/"> <img
+                    class="bgs-img" src="../../../assets/img/zulip.svg" alt=""></a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  </footer>
+</footer>

@@ -1,0 +1,18 @@
+.bg-img {
+  background-image: url("../../../assets/img/new_anime1.svg") !important;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 500px;
+}
+
+.linkText {
+  color: #18A08E !important;
+  text-decoration: none;
+  font-weight: bold; 
+}
+
+.linkText :hover {
+  color: #18A08E !important;
+  text-decoration: none;
+}
