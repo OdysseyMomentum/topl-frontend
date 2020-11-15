@@ -123,10 +123,10 @@ export class MissionFormComponent implements OnInit {
           "DateTime": userParams.dateTime,//'2020-05-12T13:30:00Z'
           "Duration": "P00D00H00M",
           "ObjectType": "15",
-          // "ObjectLatitude": userParams.latitude,
-          // "ObjectLongitude": userParams.longitude,
-          "ObjectLatitude": "+29.76017",
-          "ObjectLongitude": "-095.36937",
+          "ObjectLatitude": userParams.latitude,
+          "ObjectLongitude": userParams.longitude,
+          // "ObjectLatitude": "+29.76017",
+          // "ObjectLongitude": "-095.36937",
           "ObjectSizeDim1": "0000",
           "ObjectSizeDim2": "0000",
           "ObjectOrientation": "000"

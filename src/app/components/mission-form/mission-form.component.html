@@ -19,7 +19,7 @@
         <input type="datetime-local" class="form-control" id="dateTime"
                required
                [(ngModel)]= "model.dateTime"  name="dateTime"
-               placeholder="yyyy-MM-ddTHH:mm:ss"
+               placeholder="yyyy-MM-ddTHH:mm:ss.sss"
                #dateTime="ngModel"/>
         <div [hidden]="dateTime.valid || dateTime.pristine" class="alert alert-danger">
             Date is required
