@@ -60,12 +60,4 @@ export class ApiService {
         })
       );
   }
-
-  /** POST: add a new hero to the database */
-// addHero(mission: Mission): Observable<Mission> {
-//   return this.http.post<Mission>("sd", mission, httpOptions)
-//     .pipe(
-//       catchError(this.handleError('addMission', mission))
-//     );
-// }
 }

@@ -14,17 +14,15 @@ export class MapComponent implements OnInit {
   style = "mapbox://styles/aragonezr/ckhhyjann0feo19k4twgnvv2h";
   missions: Array<any>;
 
-  // Nigeria coordinates
-  lat = 8.142269910795562;
-  lng = 9.492261139763059;
+  // Asmara coordinates
+  lat = 15.3229;
+  lng = 38.9251;
 
   constructor(private api: ApiService) {
     this.mobile = false;
   }
 
   ngOnInit() {
-
-    // let topl_map= this.map;
     if (window.screen.width <= 425) { // 768px portrait
       this.mobile = true;
     }
@@ -67,9 +65,7 @@ export class MapComponent implements OnInit {
   }
 
   addMissionMarker(e:any){
-    //console.log(e);
-    //new mapboxgl.Marker().setLngLat(e.lngLat.wrap()).addTo(topl_map);
-
+    // create element
     var el = document.createElement('div');
     el.className = 'marker';
     el.style.backgroundImage = 'url(../../../assets/wf-icons/M'+e.SubjectCode+'.png)';
@@ -78,13 +74,10 @@ export class MapComponent implements OnInit {
     el.style.height = '40px';
     el.style.backgroundSize = 'cover';
 
-    // el.addEventListener('click', function () {
-    //   console.log("you clicked me!!");
-    //   //window.alert(marker.properties.message);
-    // });
+    // sample {lng: 9.35153417968661, lat: 54.4269708864399}
     let latLong = {lng: e.ObjectLongitude, lat: e.ObjectLatitude};
-    //let latLong = {lng: 9.35153417968661, lat: 54.4269708864399};
-    console.log(latLong);// {lng: 9.35153417968661, lat: 54.4269708864399}
+    console.log(latLong);
+
     // add marker to map
     new mapboxgl.Marker(el)
     .setLngLat(latLong)
@@ -98,8 +91,6 @@ export class MapComponent implements OnInit {
         console.log("data received...", res);
         this.missions = res.data;
         this.placeMissionMarkers();
-        // this.peaceCredits = res.data.length;
-        // this.loading = false
       });
   }
 }

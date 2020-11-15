@@ -26,9 +26,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
       this.mobile = true;
     }
 
-    // this.getBlockHeight();
-    // this.getAvgBlockDelay();
-    // this.refreshList();
   }
 
   ngOnDestroy() {
@@ -52,7 +49,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
           this.getUnconfirmedTxns();
           this.getAvgBlockDelay();
           this.blockHeight = res.height
-        }        
+        }
       });
   }
 

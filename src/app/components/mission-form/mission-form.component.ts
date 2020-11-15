@@ -99,11 +99,6 @@ export class MissionFormComponent implements OnInit {
         result = "0"+x.toFixed(5);
       }
     }
-    
-    // if(coorType === "long" && x < 100){
-    //   result = "0"+x.toFixed(5);
-    // }
-
 
     if(!result){
       result = x.toFixed(5);
