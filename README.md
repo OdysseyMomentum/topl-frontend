@@ -8,8 +8,11 @@ This frontend application has been specifically designed for [Odyssey Conflict P
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
 
-## Whiteflag API
-This is a forked and modified version of the Whiteflag protocol to interact directly with Topl's Bifrost nodes. The protocol will allow for messages created using the Whiteflag specification to be encoded and recorded on the Topl blockchain and the transaction hash to be returned to Whiteflag.
+### Whiteflag API
+[Topl/whiteflag-api](https://github.com/Topl/whiteflag-api/tree/bifrost) is a forked and modified version of the Whiteflag protocol to interact directly with Topl's Bifrost nodes. The protocol will allow for messages created using the Whiteflag specification to be encoded and recorded on the Topl blockchain and the transaction hash to be returned to Whiteflag.
+
+### Bifrost
+Topl's blockchain reference [node](https://github.com/Topl/Bifrost). Messages are validated and submitted to the blockchain using [Brambljs](https://github.com/Topl/BramblJS). Similar to Ethereum's Web3, Brambl allows easy chain integration and account management at the API and application level.
 
 ## Development server
 Run `npm install` to install all dependencies
