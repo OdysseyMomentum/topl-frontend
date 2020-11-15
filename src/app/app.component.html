@@ -1,19 +1,11 @@
-<!-- <div *ngIf="loading"> -->
 <!-- HEADER -->
 <app-header *ngIf="expression"></app-header>
-
-<!-- <div class="container"> -->
-
-<!-- SEARCH-BAR -->
-<!-- <app-search-bar></app-search-bar> -->
 
 <!-- PAGES -->
 <router-outlet *ngIf="expression"></router-outlet>
 
 <!-- FOOTER  -->
 <app-footer *ngIf="expression"></app-footer>
-<!-- </div> -->
-<!-- </div> -->
 
 <div *ngIf="!expression" class="row text-center bg-white vh-100">
   <div class="col align-content-center"  style="position: fixed; top:40%">

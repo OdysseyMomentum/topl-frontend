@@ -51,11 +51,13 @@ export class ApiService {
   POST(resource: string, body: any): any {
     return this.http.post<any>(environment.apiUrl + resource, body, { headers: this.getHTTPHeaders() })
       .pipe(
-        map((result: any) => {
-          return result;
+        map((response: any) => {
+          // return response immediately
+          return response;
         }),
-        catchError(err => {
-          console.log('error', err);
+        catchError(errResponse => {
+          // provide details on error
+          console.log('error', errResponse);
           return Observable.throw(false);
         })
       );
