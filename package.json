@@ -26,6 +26,7 @@
     "bootstrap": "^4.3.1",
     "bootstrap-icons": "^1.1.0",
     "core-js": "^2.5.4",
+    "geolocation-utils": "^1.2.3",
     "jquery": "^3.4.1",
     "jsdom": "^15.1.1",
     "lodash": "^4.17.20",

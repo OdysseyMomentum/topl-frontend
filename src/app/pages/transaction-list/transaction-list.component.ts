@@ -15,37 +15,48 @@ export class TransactionsComponent implements OnInit, OnDestroy {
   loading: boolean;
   truncateMiddle = require("truncate-middle");
 
-  constructor(private data: ApiService, private router: Router) {}
+  constructor(private api: ApiService, private router: Router) {}
 
   ngOnInit() {
-    this.getTxns(this.page);
+    //this.getTxns(this.page);
+    this.getWhiteflagMessages();
   }
 
   ngOnDestroy() {}
 
-  getTxns(pageNum): any {
+  // send message to whiteflag/topl-bifrost
+  getWhiteflagMessages(): any {
     this.loading = true;
-    this.data
-      .Request(`${this.apiRoute}${pageNum}?size=${this.size}`)
-      .subscribe((txns) => {
-        this.txnBatch = txns;
+    this.api.Request('/messages?blockchain=topl-testnet')
+      .subscribe(res => {
+        console.log("data received...", res);
         this.loading = false
       });
   }
 
-  next() {
-    this.page = this.page + Number(1);
-    this.getTxns(this.page);
-  }
+  // getTxns(pageNum): any {
+  //   this.loading = true;
+  //   this.api
+  //     .Request(`${this.apiRoute}${pageNum}?size=${this.size}`)
+  //     .subscribe((txns) => {
+  //       this.txnBatch = txns;
+  //       this.loading = false
+  //     });
+  // }
 
-  prev() {
-    if (this.page > 1) {
-      this.page = this.page - Number(1);
-      this.getTxns(this.page);
-    }
-  }
+  // next() {
+  //   this.page = this.page + Number(1);
+  //   this.getTxns(this.page);
+  // }
 
-  clickdetails(id: String): any {
-    this.router.navigateByUrl(`${"transaction"}/${id}`);
-  }
+  // prev() {
+  //   if (this.page > 1) {
+  //     this.page = this.page - Number(1);
+  //     this.getTxns(this.page);
+  //   }
+  // }
+
+  // clickdetails(id: String): any {
+  //   this.router.navigateByUrl(`${"transaction"}/${id}`);
+  // }
 }

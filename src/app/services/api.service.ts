@@ -4,6 +4,8 @@ import { environment } from '../../environments/environment';
 import { catchError, map } from 'rxjs/operators';
 import { of, Observable } from 'rxjs';
 import * as _ from 'lodash';
+import { Mission } from '../mission';
+import { HttpParamsOptions } from '@angular/common/http/src/params';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +17,7 @@ export class ApiService {
   getHTTPHeaders(): HttpHeaders {
     const result = new HttpHeaders();
     result.set('Content-Type', 'application/json');
+    result.set('Authorization', 'Basic PEJhc2ljIEF1dGggVXNlcm5hbWU+OjxCYXNpYyBBdXRoIFBhc3N3b3JkPg==');
     return result;
   }
 
@@ -44,4 +47,25 @@ export class ApiService {
         })
       );
   }
+
+  POST(resource: string, body: any): any {
+    return this.http.post<any>(environment.apiUrl + resource, body, { headers: this.getHTTPHeaders() })
+      .pipe(
+        map((result: any) => {
+          return result;
+        }),
+        catchError(err => {
+          console.log('error', err);
+          return Observable.throw(false);
+        })
+      );
+  }
+
+  /** POST: add a new hero to the database */
+// addHero(mission: Mission): Observable<Mission> {
+//   return this.http.post<Mission>("sd", mission, httpOptions)
+//     .pipe(
+//       catchError(this.handleError('addMission', mission))
+//     );
+// }
 }
