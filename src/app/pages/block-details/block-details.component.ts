@@ -51,10 +51,12 @@ export class BlockDetailsComponent implements OnInit {
     $temp.remove();
   }
 
+  // show toaster when item is correctly copied
   showSuccess() {
     this.toastr.successToastr("Copied to Clipboard", "Success!");
   }
 
+  // custom toaster
   showCustom() {
     this.toastr.customToastr(
       '"<span style="color: #18A08E; font-size: 18px; text-align: center; ">Copied to Clipboard</span>"',

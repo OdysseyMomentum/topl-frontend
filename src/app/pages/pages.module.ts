@@ -6,8 +6,6 @@ import { BlockListComponent } from './block-list/block-list.component';
 import { MapComponent } from '../components/map/map.component';
 import { TransactionsComponent } from './transaction-list/transaction-list.component';
 import { BlockDetailsComponent } from './block-details/block-details.component';
-import { UnconfirmedDetailsComponent } from './unconfirmed-details/unconfirmed-details.component';
-import { AddressComponent } from './address/address.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MissionFormComponent } from '../components/mission-form/mission-form.component';
@@ -18,8 +16,6 @@ import { MissionFormComponent } from '../components/mission-form/mission-form.co
     BlockListComponent,
     TransactionsComponent,
     BlockDetailsComponent,
-    UnconfirmedDetailsComponent,
-    AddressComponent,
     NotFoundComponent,
     MapComponent,
     MissionFormComponent
