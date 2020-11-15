@@ -30,6 +30,7 @@
       </div>
     </div>
   </div> -->
+
   <div class="row rounded listTable p-4">
     <div class="col-xl-7 rounded-left pb-3 mb-0">
       <div class="d-flex justify-content-left">
@@ -40,8 +41,9 @@
       </div>
       <div class="border_custom" style="overflow-x:scroll;">
         <div style="min-width: 605px;">
+          <app-mission-form></app-mission-form>
           <!-- Remove ngIF below... should be moved to the right side fo the mission status details. -->
-          <table *ngIf="blockBatch" class="table table-borderless table-hover table-striped">
+          <!-- <table *ngIf="blockBatch" class="table table-borderless table-hover table-striped">
             <thead>
               <tr class="table-heading">
                 <th class="tableField text-center">Block #</th>
@@ -61,13 +63,13 @@
                 </td>
               </tr>
             </tbody>
-          </table>
+          </table> -->
         </div>
       </div>
     </div>
 
 
-    <div class="col-xl-5 rounded-right pb-3 mb-0" [ngClass]="{'verticalLine': mobile==false}">
+    <!-- <div class="col-xl-5 rounded-right pb-3 mb-0" [ngClass]="{'verticalLine': mobile==false}">
       <div class="d-flex justify-content-left">
         <div class="tableHeading">
           Mission/Message Status
@@ -83,7 +85,6 @@
                 <th class="tableField text-center">Status</th>
               </tr>
             </thead>
-            <!-- <tbody *ngIf="unconfirmedTxns.length > 0" class=""> -->
             <tbody class=""></tbody>
               <tr class="table-heading">
                 <th class="tableField text-center">Need to connect sockets api to receive update...</th>
@@ -113,6 +114,6 @@
           <span>No unconfirmed missions</span>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>

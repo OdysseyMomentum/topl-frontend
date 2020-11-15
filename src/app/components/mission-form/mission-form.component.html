@@ -1,0 +1,73 @@
+<div class="container">
+  <div [hidden]="submitted">
+    <form (ngSubmit)="onSubmit()" #missionForm="ngForm">
+      <div class="form-group">
+        <label for="msgCode">Mission Code</label>
+        <select class="form-control" id="msgCode"
+                required
+                [(ngModel)]="model.msgCode" name="msgCode"
+                #msgCode="ngModel">
+          <option *ngFor="let code of msgCodes" [value]="code">{{code}}</option>
+        </select>
+        <div [hidden]="msgCode.valid || msgCode.pristine" class="alert alert-danger">
+          Mission Code is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="dateTime">DateTime</label>
+        <input type="datetime-local" class="form-control" id="dateTime"
+               required
+               [(ngModel)]= "model.dateTime"  name="dateTime"
+               placeholder="yyyy-MM-ddTHH:mm:ss"
+               #dateTime="ngModel"/>
+        <div [hidden]="dateTime.valid || dateTime.pristine" class="alert alert-danger">
+            Date is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="latitude">Latitude</label>
+        <input type="text" class="form-control" id="latitude"
+               required
+               [(ngModel)]="model.latitude" name="latitude"
+               #latitude="ngModel">
+        <div [hidden]="latitude.valid || latitude.pristine" class="alert alert-danger">
+            Latitude is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="longitude">Longitude</label>
+        <input type="text" class="form-control" id="longitude"
+               required
+               [(ngModel)]="model.longitude" name="longitude"
+               #longitude="ngModel">
+        <div [hidden]="longitude.valid || longitude.pristine" class="alert alert-danger">
+          Longitude is required
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!missionForm.form.valid">Submit</button>
+      <button type="button" class="btn btn-default" (click)="newMission(); missionForm.reset()">New Mission</button>
+    </form>
+  </div>
+
+  <div [hidden]="!submitted">
+    <h2>Mission message sent!</h2>
+    <div class="row">
+      <div class="col-xs-3">Message Code: {{ model.msgCode }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Date/Time: {{ model.dateTime }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Latitude: {{ model.latitude }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">longitude: {{ model.longitude }}</div>
+    </div>
+    <br>
+    <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+  </div>
+</div>

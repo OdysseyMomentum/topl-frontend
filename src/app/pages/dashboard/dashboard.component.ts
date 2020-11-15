@@ -26,9 +26,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
       this.mobile = true;
     }
 
-    this.getBlockHeight();
-    this.getAvgBlockDelay();
-    this.refreshList();
+    // this.getBlockHeight();
+    // this.getAvgBlockDelay();
+    // this.refreshList();
   }
 
   ngOnDestroy() {

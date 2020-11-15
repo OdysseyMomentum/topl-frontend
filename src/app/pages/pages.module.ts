@@ -11,6 +11,8 @@ import { TransactionDetailsComponent } from './transaction-details/transaction-d
 import { UnconfirmedDetailsComponent } from './unconfirmed-details/unconfirmed-details.component';
 import { AddressComponent } from './address/address.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MissionFormComponent } from '../components/mission-form/mission-form.component';
 
 @NgModule({
   declarations: [
@@ -23,11 +25,14 @@ import { NotFoundComponent } from './not-found/not-found.component';
     UnconfirmedDetailsComponent,
     AddressComponent,
     NotFoundComponent,
-    MapComponent
+    MapComponent,
+    MissionFormComponent
   ],
   imports: [
     CommonModule,
-    PagesRoutingModule
+    PagesRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class PagesModule {
