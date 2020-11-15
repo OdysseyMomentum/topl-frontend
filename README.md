@@ -7,7 +7,9 @@ This frontend application has been specifically designed for [Odyssey Conflict P
 # Tech Stack
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
-The backend services used by this app can be found here: https://github.com/OdysseyMomentum/topl-backend
+
+## Whiteflag API
+This is a forked and modified version of the Whiteflag protocol to interact directly with Topl's Bifrost nodes. The protocol will allow for messages created using the Whiteflag specification to be encoded and recorded on the Topl blockchain and the transaction hash to be returned to Whiteflag.
 
 ## Development server
 Run `npm install` to install all dependencies
