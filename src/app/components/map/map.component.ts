@@ -39,31 +39,17 @@ export class MapComponent implements OnInit {
 
     // Add map controls
     //this.map.addControl(new mapboxgl.NavigationControl());
-    
+
     this.getWhiteflagMessages();
 
-
-
     // Places marker onClick within map view
-    // this.map.on('click', addMarker);
+    this.map.on('click', getCoordinates);
 
-    // let topl_map = this.map;
+    let topl_map = this.map;
 
-    // function addMarker(e){
-
-    //   var el = document.createElement('div');
-    //   el.className = 'marker';
-    //   el.style.backgroundImage = 'url(../../../assets/wf-icons/M60.png)';
-
-    //   el.style.width = '40px';
-    //   el.style.height = '40px';
-    //   el.style.backgroundSize = 'cover';
-    //   console.log(e.lngLat.wrap());// {lng: 9.35153417968661, lat: 54.4269708864399}
-    //   // add marker to map
-    //   new mapboxgl.Marker(el)
-    //   .setLngLat(e.lngLat.wrap())
-    //   .addTo(topl_map);
-    // }
+    function getCoordinates(e){
+      console.log("Coordinates are: ",e.lngLat.wrap());// {lng: 9.35153417968661, lat: 54.4269708864399}
+    }
 
   }
 

@@ -29,21 +29,14 @@ export class MissionFormComponent implements OnInit {
   submitted = false;
 
   onSubmit() {
-    this.submitted = true;
-    console.log("Model to be submitted: ", this.model);
-
     // remove milliseconds from dateTime
     this.model.dateTime = this.dateToISO8601(this.model.dateTime);
 
     let msgBody = this.getMessageBody(this.model);
+    console.log("Model to be submitted: ", msgBody);
+    console.log(this.toISO6709(this.model.latitude, "lat"))
+    console.log(this.toISO6709(this.model.longitude, "long"))
     this.sendWhiteflagMessage(msgBody);
-
-    // console.log(this.toISO6709("-3.90", "lat"));
-    // console.log(this.toISO6709("-3.90", "long"));
-    // console.log(this.toISO6709("3.90", "lat"));
-    // console.log(this.toISO6709("3.90", "long"));
-    // console.log(this.toISO6709("130.90000000", "long"));
-    // console.log(this.toISO6709("+10.90000", "long"));
   }
 
   dateToISO8601(date) {
@@ -61,13 +54,19 @@ export class MissionFormComponent implements OnInit {
   sendWhiteflagMessage(body: any): any {
     this.api.POST('/messages/send', body)
       .subscribe(res => {
+        this.submitted = true;
         console.log("data sent...");
       });
   }
 
+  /**
+   * ISO 6709
+   * longitude _ddd.ddddd
+   * latittude _dd.ddddd
+   * @param geoCoordinate real number
+   * @param coorType lat or long
+   */
   toISO6709(geoCoordinate: any, coorType: string): any{
-    //type = lat or long
-
     if(!geoCoordinate){
       return;
     }
@@ -84,11 +83,30 @@ export class MissionFormComponent implements OnInit {
     x.toFixed(5);
 
     // add trailing 0
-    if(coorType === "lat" && x <10){
-      result = "0"+x;
+    if(coorType === "long" ){
+      if(x < 10){
+        result = "00";
+      }
+      if(x > 10 && x < 100){
+        result = "0";
+      }
+      if(result){
+        result = result+x.toFixed(5)
+      }
     }
-    if(coorType === "long"){
-      //result =this.padNum(3, x);
+    if(coorType === "lat" ){
+      if(x < 10){
+        result = "0"+x.toFixed(5);
+      }
+    }
+    
+    // if(coorType === "long" && x < 100){
+    //   result = "0"+x.toFixed(5);
+    // }
+
+
+    if(!result){
+      result = x.toFixed(5);
     }
 
     if(negative){
@@ -123,10 +141,10 @@ export class MissionFormComponent implements OnInit {
           "DateTime": userParams.dateTime,//'2020-05-12T13:30:00Z'
           "Duration": "P00D00H00M",
           "ObjectType": "15",
-          "ObjectLatitude": userParams.latitude,
-          "ObjectLongitude": userParams.longitude,
-          // "ObjectLatitude": "+29.76017",
-          // "ObjectLongitude": "-095.36937",
+          "ObjectLatitude": this.toISO6709(userParams.latitude, "lat"),
+          "ObjectLongitude": this.toISO6709(userParams.longitude, "long"),
+          // "ObjectLatitude": userParams.latitude,
+          // "ObjectLongitude": userParams.longitude,
           "ObjectSizeDim1": "0000",
           "ObjectSizeDim2": "0000",
           "ObjectOrientation": "000"
